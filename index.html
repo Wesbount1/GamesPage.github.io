@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever | Portal</title>
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="icon" type="image/png" href="img/favicon2.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 0;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #00d4ff, #0099ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        h2 {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #b0b0b0;
+            font-weight: 400;
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #00d4ff;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #00d4ff;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #00d4ff, #0099ff);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #00d4ff;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .game-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #00d4ff;
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .game-card a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .soporte {
+            padding: 15px 25px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid #00d4ff;
+            border-radius: 8px;
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .soporte:hover {
+            background: #00d4ff;
+            color: #1a1a2e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .soporte a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .extra-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+        }
+
+        .extra-section p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .Calculator {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a6f);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .Calculator:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.1em;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 15px;
+            }
+
+            .game-card img {
+                height: 150px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎮 Games Unlocked </h1>
+        <h2>¡Bienvenido a mi pagina! Aquí encontrarás una variedad de juegos educativos y divertidos para ti. ¡Disfruta y aprende mientras juegas!</h2>
+    </div>
+
+    <div class="button-group">
+        <a href="mensaje.html" class="btn btn-primary">📧 Reporte Bugs</a>
+        <a href="links.html" class="btn btn-primary">Mas links desbloqueados</a>
+        <button class="btn btn-secondary">🚀 Red Social (BETA)</button>
+    </div>
+
+    <div class="info-section">
+        <strong>💡 Tip:</strong> Si quieres tener toda la página sin que se te guarde en el historial, entra a <code>https://aboutblank4345.tiiny.site/</code> (puede que algunos juegos tengan bugs en esa sección)
+    </div>
+
+    <h2 style="text-align: center; margin: 30px 0; font-size: 1.5em;">Selecciona un juego para empezar</h2>
+
+    <div class="games-grid">
+        <div class="game-card">
+            <a href="minestudent.html">
+                <img src="img/minecraftlogo.png" alt="Minecraft">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clmotox3mm.html">
+                <img src="img/motox3m.png" alt="Moto X3M">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clgdlite.html">
+                <img src="img/geometrydash.png" alt="Geometry Dash">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clcookie-clicker.html">
+                <img src="img/cookieclicker.png" alt="Cookie Clicker">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/stealbrainrot.html">
+                <img src="img/270px-Steal_A_Brainrot.png" alt="Steal A Brainrot">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clcs1.6.html">
+                <img src="img/counter-strike-xbox-button-crop-1642752841944.png" alt="Counter Strike">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clgeometryvibes.html">
+                <img src="img/geometry-vibes-m240x240.jpeg" alt="Geometry Vibes">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="fnafstudent.html">
+                <img src="img/fnaf.png" alt="FNAF">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clcrazycars.html">
+                <img src="img/crazy-cars.png" alt="Crazy Cars">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clcrazymotorcycle.html">
+                <img src="img/crazy-motorcycle.a3b572.png" alt="Crazy Motorcycle">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clbaldisbasics.html">
+                <img src="img/baldi.jpg" alt="Baldi's Basics">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clfridaynightfunkin.html">
+                <img src="img/friday-night-funkin-logo-png_seeklogo-411208.png" alt="Friday Night Funkin">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clpvz2gardenless.html">
+                <img src="img/120px-Plants_Vs._Zombies™_2_It's_About_Time_Icon_(Versions_4.8.1).png" alt="Plants vs Zombies">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clsolarsmash.html">
+                <img src="img/solar-smash-m150x150.png" alt="Solar Smash">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clsubwaysurfersmexico.html">
+                <img src="img/subwaysurfersmexico.jpg" alt="Subway Surfers">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/clsupercarrush.html">
+                <img src="img/super-tunnel-rush.png" alt="Super Car Rush">
+            </a>
+        </div>
+        
+        <div class="game-card">
+            <a href="Games HTML5/cldoomdos.html">
+                <img src="img/doom.jpeg" alt="Doom I">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/cltotm.html">
+                <img src="img/totm.png" alt="totm">
+            </a>
+        </div>
+
+        <div class="game-card">
+            <a href="Games HTML5/cltheyarecoming.html">
+                <img src="img/theyarecomming.jpeg" alt="They Are Coming">
+            </a>
+        </div>
+
+    <div class="game-card">
+            <a href="Games HTML5/clangrybirdsonline.html">
+                <img src="img/angrybirds.jpeg" alt="They Are Coming">
+            </a>
+        </div>
+
+    <div class="game-card">
+            <a href="Games HTML5/clgoogledino.html">
+                <img src="img/dino.jpg" alt="Google Dino">
+            </a>
+        </div>
+    </div>
+
+    <div class="extra-section">
+        <h3 style="margin-bottom: 15px;">Herramientas Adicionales</h3>
+        <p>📊 Calculadora y más juegos</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <a href="Calculator.html" class="Calculator">🧮 Calculator</a>
+            <a href="https://hcstemm.org/math/" class="Calculator">🎯 Más Juegos</a>
+            <a href="blank-protected.html" class="Calculator">Prueba</a>
+        </div>
+        <p style="font-size: 0.85em; margin-top: 15px; color: #888;">*La página de abajo no fue creada por mí</p>
+    </div>
+
+</body>
+</html>
